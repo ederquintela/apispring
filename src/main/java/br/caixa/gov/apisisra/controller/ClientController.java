@@ -1,9 +1,7 @@
 package br.caixa.gov.apisisra.controller;
 
 
-import br.caixa.gov.apisisra.doc.DocTaskControllerCreate;
-import br.caixa.gov.apisisra.doc.DocTaskController;
-import br.caixa.gov.apisisra.doc.DocTaskControllerDelete;
+import br.caixa.gov.apisisra.doc.DocClientController;
 import br.caixa.gov.apisisra.dto.TaskDTO;
 import br.caixa.gov.apisisra.model.Task;
 import br.caixa.gov.apisisra.service.TaskService;
@@ -20,14 +18,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/tasks")
-@DocTaskController
-public class TaskController {
+@RequestMapping("/clients")
+@DocClientController
+public class ClientController {
 
 	private final TaskService service;
     private final TaskValidator validator;
 
-	public TaskController(TaskService service, TaskValidator validator) {
+	public ClientController(TaskService service, TaskValidator validator) {
 		this.service = service;
 		this.validator = validator;
 	}
@@ -46,7 +44,7 @@ public class TaskController {
     }
 
     @PostMapping
-    @DocTaskControllerCreate
+    //@DocTaskControllerCreate
     public ResponseEntity<?> create(@Valid @RequestBody TaskDTO taskDTO, BindingResult bindingResult) {
 		
         // Validação personalizada
@@ -93,7 +91,7 @@ public class TaskController {
     }
 
 	@DeleteMapping("/{id}")
-    @DocTaskControllerDelete
+    //@DocTaskControllerDelete
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 
         if (service.findById(id).isPresent()) {

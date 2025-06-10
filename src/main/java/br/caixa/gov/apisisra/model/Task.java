@@ -1,5 +1,7 @@
 package br.caixa.gov.apisisra.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +15,10 @@ public class Task {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotNull(message = "A descrição não pode ser nula")
 	private String description;
-	private boolean completed;
+
+	@NotNull(message = "O status completed não pode ser nulo")
+	private Boolean completed;
 	
 }

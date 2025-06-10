@@ -1,0 +1,4 @@
+@DeleteMapping("/{id}")
+public ResponseEntity<Void> delete(@PathVariable Long id, @RequestParam(required = false) Integer teste) {
+
+}
