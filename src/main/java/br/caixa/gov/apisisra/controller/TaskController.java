@@ -1,8 +1,9 @@
 package br.caixa.gov.apisisra.controller;
 
 
-import br.caixa.gov.apisisra.doc.DocTaskControllerCreate;
+import br.caixa.gov.apisisra.components.HelloWorld;
 import br.caixa.gov.apisisra.doc.DocTaskController;
+import br.caixa.gov.apisisra.doc.DocTaskControllerCreate;
 import br.caixa.gov.apisisra.doc.DocTaskControllerDelete;
 import br.caixa.gov.apisisra.dto.TaskDTO;
 import br.caixa.gov.apisisra.model.Task;
@@ -26,10 +27,12 @@ public class TaskController {
 
 	private final TaskService service;
     private final TaskValidator validator;
+    private final HelloWorld teste;
 
-	public TaskController(TaskService service, TaskValidator validator) {
+	public TaskController(TaskService service, TaskValidator validator, HelloWorld teste) {
 		this.service = service;
 		this.validator = validator;
+        this.teste = teste;
 	}
 
 	@GetMapping
